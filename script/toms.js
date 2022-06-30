@@ -3,6 +3,7 @@
     class Toms {
 
         init(){
+            console.log($(window).height());
             this.header();
             this.section1();
             this.section2();
@@ -62,7 +63,8 @@
                 }
             });
             $('.close-btn').on({
-                click: function(){
+                click: function(e){
+                    e.preventDefault();
                     $('.nav-mobile-gap ul').animate({left:-325}, 300);
                     $('#nav-mobile').fadeOut(300);
                 }
@@ -79,7 +81,8 @@
 
             //캠페인 닫기
             $('.camp-close-btn').on({
-                click: function(){
+                click: function(e){
+                    e.preventDefault();
                     $(this).hide();
                 }
             });
@@ -228,14 +231,16 @@
                 mouseup: function(e){
                     touchEnd = e.clientX;
                     result = touchStart - touchEnd > 0 ? 'NEXT' : 'PREV';
-                    if(result==='NEXT'){
-                        if( !$('#section1 .slide-wrap').is(':animated')){
-                        nextCount();
+                    if( Math.abs( touchStart - touchEnd ) > 10){
+                        if(result==='NEXT'){
+                            if( !$('#section1 .slide-wrap').is(':animated')){
+                            nextCount();
+                            }
                         }
-                    }
-                    if(result==='PREV'){
-                        if( !$('#section1 .slide-wrap').is(':animated')){
-                        prevCount();
+                        if(result==='PREV'){
+                            if( !$('#section1 .slide-wrap').is(':animated')){
+                            prevCount();
+                            }
                         }
                     }
                     mouseDown = false;
@@ -266,14 +271,16 @@
                 touchend: function(e){
                     touchEnd = e.originalEvent.changedTouches[0].clientX;
                     result = touchStart - touchEnd > 0 ? 'NEXT' : 'PREV';
-                    if(result==='NEXT'){
-                        if( !$('#section1 .slide-wrap').is(':animated')){
-                        nextCount();
+                    if( Math.abs( touchStart - touchEnd ) > 10){
+                        if(result==='NEXT'){
+                            if( !$('#section1 .slide-wrap').is(':animated')){
+                            nextCount();
+                            }
                         }
-                    }
-                    if(result==='PREV'){
-                        if( !$('#section1 .slide-wrap').is(':animated')){
-                        prevCount();
+                        if(result==='PREV'){
+                            if( !$('#section1 .slide-wrap').is(':animated')){
+                            prevCount();
+                            }
                         }
                     }
                     mouseDown = false;
@@ -479,14 +486,16 @@
                     e.preventDefault();
                     touchEnd = e.clientX;
                     result = touchStart - touchEnd > 0 ? 'NEXT' : 'PREV';
-                    if(result==='NEXT'){
-                        if( !$('#section3 .slide-wrap').is(':animated')){
-                        nextCount();
+                    if( Math.abs( touchStart - touchEnd ) > 10){
+                        if(result==='NEXT'){
+                            if( !$('#section3 .slide-wrap').is(':animated')){
+                            nextCount();
+                            }
                         }
-                    }
-                    if(result==='PREV'){
-                        if( !$('#section3 .slide-wrap').is(':animated')){
-                        prevCount();
+                        if(result==='PREV'){
+                            if( !$('#section3 .slide-wrap').is(':animated')){
+                            prevCount();
+                            }
                         }
                     }
                     mouseDown = false;
@@ -542,14 +551,16 @@
                     e.preventDefault();
                     touchEnd = e.originalEvent.changedTouches[0].clientX;
                     result = touchStart - touchEnd > 0 ? 'NEXT' : 'PREV';
-                    if(result==='NEXT'){
-                        if( !$('#section3 .slide-wrap').is(':animated')){
-                        nextCount();
+                    if( Math.abs( touchStart - touchEnd ) > 10){
+                        if(result==='NEXT'){
+                            if( !$('#section3 .slide-wrap').is(':animated')){
+                            nextCount();
+                            }
                         }
-                    }
-                    if(result==='PREV'){
-                        if( !$('#section3 .slide-wrap').is(':animated')){
-                        prevCount();
+                        if(result==='PREV'){
+                            if( !$('#section3 .slide-wrap').is(':animated')){
+                            prevCount();
+                            }
                         }
                     }
                     mouseDown = false;
@@ -784,14 +795,16 @@
                     e.preventDefault();
                     touchEnd = e.clientX;
                     result = touchStart - touchEnd > 0 ? 'NEXT' : 'PREV';
-                    if(result==='NEXT'){
-                        if( !$('#section5 .slide-wrap').is(':animated')){
-                        nextCount();
+                    if( Math.abs( touchStart - touchEnd ) > 10){
+                        if(result==='NEXT'){
+                            if( !$('#section5 .slide-wrap').is(':animated')){
+                            nextCount();
+                            }
                         }
-                    }
-                    if(result==='PREV'){
-                        if( !$('#section5 .slide-wrap').is(':animated')){
-                        prevCount();
+                        if(result==='PREV'){
+                            if( !$('#section5 .slide-wrap').is(':animated')){
+                            prevCount();
+                            }
                         }
                     }
                     mouseDown = false;
@@ -847,14 +860,16 @@
                     e.preventDefault();
                     touchEnd = e.originalEvent.changedTouches[0].clientX;
                     result = touchStart - touchEnd > 0 ? 'NEXT' : 'PREV';
-                    if(result==='NEXT'){
-                        if( !$('#section5 .slide-wrap').is(':animated')){
-                        nextCount();
+                    if( Math.abs( touchStart - touchEnd ) > 10){
+                        if(result==='NEXT'){
+                            if( !$('#section5 .slide-wrap').is(':animated')){
+                            nextCount();
+                            }
                         }
-                    }
-                    if(result==='PREV'){
-                        if( !$('#section5 .slide-wrap').is(':animated')){
-                        prevCount();
+                        if(result==='PREV'){
+                            if( !$('#section5 .slide-wrap').is(':animated')){
+                            prevCount();
+                            }
                         }
                     }
                     mouseDown = false;
