@@ -211,6 +211,8 @@
                     play();
                 }
             });
+            
+            //마우스 드래그앤드롭 터치스와이프
 
             let touchStart  = null;
             let touchEnd = null;
@@ -253,6 +255,29 @@
                     mouseDown = false;
 
                 }
+            });
+            //손가락 터치
+            $('#section1 .slide-wrap').on({
+                touchstart: function(e){
+                    pause();
+                    touchStart = e.originalEvent.changedTouches[0].clientX;
+                    mouseDown = true;
+                },
+                touchend: function(e){
+                    touchEnd = e.originalEvent.changedTouches[0].clientX;
+                    result = touchStart - touchEnd > 0 ? 'NEXT' : 'PREV';
+                    if(result==='NEXT'){
+                        if( !$('#section1 .slide-wrap').is(':animated')){
+                        nextCount();
+                        }
+                    }
+                    if(result==='PREV'){
+                        if( !$('#section1 .slide-wrap').is(':animated')){
+                        prevCount();
+                        }
+                    }
+                    mouseDown = false;
+                },
             });
         }
         section2(){
@@ -490,6 +515,53 @@
                     }
                     mouseDown = false;
 
+                }
+            });
+            //손가락터치
+            $('#section3 .slide-wrap').on({
+                touchstart: function(e){
+                    e.preventDefault();
+                    pause();
+                    winW = $(window).width();
+
+                    touchStart = e.originalEvent.changedTouches[0].clientX;
+                    if(winW>734){
+                        dragStart = e.originalEvent.changedTouches[0].clientX - $('#section3 .slide-wrap').offset().left-slideW/3 + ( ( winW - $('#section3 .slide-container').width() )/2 );
+                    }
+                    else{
+                        dragStart = e.originalEvent.changedTouches[0].clientX - $('#section3 .slide-wrap').offset().left - slideW;  
+                    }
+                    // console.log( (winW - $('#section3 .slide-container').width())/2 );
+                    // console.log(`$('.slide-wrap').offset().left`, $('#section3 .slide-wrap').offset().left);
+                    // console.log(`$('.slide-wrap').offset().left-winW`, $('#section3 .slide-wrap').offset().left-slideW/3);
+                    // console.log(`dragStart`,dragStart);
+                    // console.log(`e.originalEvent.changedTouches[0].clientX`, e.originalEvent.changedTouches[0].clientX);
+                    mouseDown = true;
+                },
+                touchend: function(e){
+                    e.preventDefault();
+                    touchEnd = e.originalEvent.changedTouches[0].clientX;
+                    result = touchStart - touchEnd > 0 ? 'NEXT' : 'PREV';
+                    if(result==='NEXT'){
+                        if( !$('#section3 .slide-wrap').is(':animated')){
+                        nextCount();
+                        }
+                    }
+                    if(result==='PREV'){
+                        if( !$('#section3 .slide-wrap').is(':animated')){
+                        prevCount();
+                        }
+                    }
+                    mouseDown = false;
+                },
+                touchmove: function(e){
+                    e.preventDefault();
+                    if(!mouseDown){
+                        return;
+                    }
+                    dragEnd = e.originalEvent.changedTouches[0].clientX;
+                    //console.log('dragEnd',dragEnd);
+                    $('#section3 .slide-wrap').css({left:dragEnd-dragStart});
                 }
             });
 
@@ -748,6 +820,53 @@
                     }
                     mouseDown = false;
 
+                }
+            });
+            //손가락터치
+            $('#section5 .slide-wrap').on({
+                touchstart: function(e){
+                    e.preventDefault();
+                    pause();
+                    winW = $(window).width();
+
+                    touchStart = e.originalEvent.changedTouches[0].clientX;
+                    if(winW>734){
+                        dragStart = e.originalEvent.changedTouches[0].clientX - $('#section5 .slide-wrap').offset().left-slideW/3 + ( ( winW - $('#section5 .slide-container').width() )/2 );
+                    }
+                    else{
+                        dragStart = e.originalEvent.changedTouches[0].clientX - $('#section5 .slide-wrap').offset().left-slideW;
+                    }
+                    // console.log( (winW - $('#section5 .slide-container').width())/2 );
+                    // console.log(`$('.slide-wrap').offset().left`, $('#section5 .slide-wrap').offset().left);
+                    // console.log(`$('.slide-wrap').offset().left-winW`, $('#section5 .slide-wrap').offset().left-slideW/3);
+                    // console.log(`dragStart`,dragStart);
+                    // console.log(`e.originalEvent.changedTouches[0].clientX`, e.originalEvent.changedTouches[0].clientX);
+                    mouseDown = true;
+                },
+                touchend: function(e){
+                    e.preventDefault();
+                    touchEnd = e.originalEvent.changedTouches[0].clientX;
+                    result = touchStart - touchEnd > 0 ? 'NEXT' : 'PREV';
+                    if(result==='NEXT'){
+                        if( !$('#section5 .slide-wrap').is(':animated')){
+                        nextCount();
+                        }
+                    }
+                    if(result==='PREV'){
+                        if( !$('#section5 .slide-wrap').is(':animated')){
+                        prevCount();
+                        }
+                    }
+                    mouseDown = false;
+                },
+                touchmove: function(e){
+                    e.preventDefault();
+                    if(!mouseDown){
+                        return;
+                    }
+                    dragEnd = e.originalEvent.changedTouches[0].clientX;
+                    //console.log('dragEnd',dragEnd);
+                    $('#section5 .slide-wrap').css({left:dragEnd-dragStart});
                 }
             });
 
