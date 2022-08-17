@@ -178,7 +178,6 @@
                     mainSlide();         //3 메인 슬라이드 실행
                     pause();
                 });
-            
             });
 
             function pause(){
